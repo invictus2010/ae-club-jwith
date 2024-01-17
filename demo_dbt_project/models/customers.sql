@@ -1,3 +1,7 @@
+{{ config (
+materialized='table'
+)  }}
+
 with customer_orders as (
   select
      customer_id
@@ -17,5 +21,4 @@ select
 from `analytics-engineers-club.coffee_shop.customers` as customers
 left join  customer_orders
   on  customers.id = customer_orders.customer_id 
-
-limit 5
+group by 1,2,3,5
