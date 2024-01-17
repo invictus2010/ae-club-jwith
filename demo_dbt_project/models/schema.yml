@@ -1,0 +1,35 @@
+version: 2
+models:
+  - name: customers
+    description: Cleaned up data for our customers
+    columns:
+    - name: customer_id
+      description: primary key of the model
+      tests:
+        - unique
+        - not_null
+    - name: name
+      description: the name of the customer
+    - name: email
+      description: customer's email address
+    - name: n_orders
+      description: count of total number of orders
+    - name: first_order_at
+      description: datetime of first order
+
+sources:
+  - name: coffee_shop
+    project: analytics-engineers-club
+    tables:
+      - name: customers
+        columns:
+          - name: id
+            tests: 
+              - unique
+              - not_null
+      - name: orders
+        columns: 
+          - name: id
+            tests: 
+              - unique
+              - not_null
